@@ -65,11 +65,11 @@ export function ProductDisplay({ title }: ProductDisplayProps) {
         <ProductDetails product={product} />
       </div>
       <div className="flex justify-between gap-4 py-2">
-        <Button onClick={handleSkip} size="large" variant="secondary">
-          Skip
-        </Button>
         <Button onClick={handleBuy} size="large">
           Buy
+        </Button>
+        <Button onClick={handleSkip} size="large">
+          Skip
         </Button>
       </div>
     </div>
