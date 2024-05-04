@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Button from "./Button";
 import ProductDetails from "./ProductDetails";
 import CurrencyDisplay from "./CurrencyDisplay";
+import CartDisplay from "./CartDisplay";
 
 type ProductDisplayProps = {
   title: string;
@@ -51,17 +52,7 @@ export function ProductDisplay({ title }: ProductDisplayProps) {
       <div>
         <h1 className="text-3xl font-bold text-center pb-6">♾️ {title}</h1>
         <hr />
-        <p className="py-2">
-          <span className="font-bold text-orange-500">{cart.length}</span> items
-          in your cart (
-          <CurrencyDisplay
-            amount={cart.reduce(
-              (accumulator, item) => accumulator + item.price,
-              0
-            )}
-          />
-          )
-        </p>
+        <CartDisplay cart={cart} />
         <ProductDetails product={product} />
       </div>
       <div className="flex justify-between gap-4 py-2">
