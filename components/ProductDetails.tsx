@@ -1,6 +1,7 @@
 import { ProductInfo } from "@/pages/api/product";
 import Image from "next/image";
 import { Loader } from "./Loader";
+import CurrencyDisplay from "./CurrencyDisplay";
 
 type ProductDetailsProps = {
   product: ProductInfo | null;
@@ -19,7 +20,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     <>
       <h2 className="text-xl font-semibold pt-4">{product.title}</h2>
       <h3 className="text-lg font-semibold text-right text-green-600">
-        ${product.price}
+        <CurrencyDisplay amount={product.price} />
       </h3>
       <p className="image-container">
         <Image
