@@ -4,6 +4,7 @@ import Button from "./Button";
 import ProductDetails from "./ProductDetails";
 import CurrencyDisplay from "./CurrencyDisplay";
 import CartDisplay from "./CartDisplay";
+import Subliminal from "./Subliminal";
 
 type ProductDisplayProps = {
   title: string;
@@ -63,6 +64,7 @@ export function ProductDisplay({ title }: ProductDisplayProps) {
           Skip
         </Button>
       </div>
+      <Subliminal />
     </div>
   );
 }
