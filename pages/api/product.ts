@@ -2,10 +2,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export type ProductInfo = {
+  id: number;
   title: string;
   price: number;
+  category: string;
   description: string;
-  images: string[];
+  image: string;
   error?: string;
 };
 
@@ -17,15 +19,17 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<ProductInfo>
 ) {
-  fetch(`https://api.escuelajs.co/api/v1/products/${getRandomNumber(1, 200)}`)
+  fetch(`https://fakestoreapi.com/products/${getRandomNumber(1, 20)}`)
     .then((res) => res.json())
     .then((json) => res.status(200).json(json))
     .catch((err) =>
       res.status(500).json({
+        id: 0,
         title: "",
         price: 0,
+        category: "",
         description: "",
-        images: [],
+        image: "",
         error: `Cannot get product info: ${err}`,
       })
     );

@@ -1,7 +1,6 @@
 import { ProductInfo } from "@/pages/api/product";
 import Image from "next/image";
 import { Loader } from "./Loader";
-import { ImageResponse } from "next/server";
 
 type ProductDetailsProps = {
   product: ProductInfo | null;
@@ -26,19 +25,18 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
   return (
     <>
       <p className="image-container">
-        {product.images?.map((image) => (
-          <Image
-            src={image}
-            alt=""
-            width={200}
-            height={200}
-            className="image"
-          />
-        ))}
+        <Image
+          src={product.image}
+          alt={product.title}
+          width={200}
+          height={200}
+          className="image"
+        />
       </p>
       <h2>{product.title}</h2>
       <h3>{product.price}</h3>
       <p>{product.description}</p>
+      <p>{product.category}</p>
     </>
   );
 }
