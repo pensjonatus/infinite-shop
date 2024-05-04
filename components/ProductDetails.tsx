@@ -21,12 +21,12 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     <>
       <h2 className="text-lg font-semibold pt-4">{product.title}</h2>
       <PriceDisplay price={product.price} />
-      <p className="image-container">
+      <p className="image-container relative">
         <Image
           src={product.images[0]}
           alt={product.title}
-          width={400}
-          height={500}
+          fill
+          objectFit="contain"
           className="image"
         />
       </p>

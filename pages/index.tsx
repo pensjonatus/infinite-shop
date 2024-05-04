@@ -5,7 +5,7 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const title = "♾️ Infinite shop";
+  const title = "Infinite shop";
   return (
     <>
       <Head>
