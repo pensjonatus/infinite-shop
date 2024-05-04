@@ -19,8 +19,19 @@ export function ProductDisplay() {
   }
 
   useEffect(() => {
+    const cartInLocalStorage = localStorage.getItem("cart");
+    if (cartInLocalStorage) {
+      setCart(JSON.parse(cartInLocalStorage));
+    }
     fetchProduct();
   }, []);
+
+  useEffect(() => {
+    const cartInLocalStorage = localStorage.getItem("cart");
+    if (cart.length > 0 && cartInLocalStorage !== JSON.stringify(cart)) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
 
   function handleBuy() {
     setCart([...cart, product!]);
