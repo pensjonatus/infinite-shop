@@ -48,7 +48,7 @@ export function ProductDisplay({ title }: ProductDisplayProps) {
 
   return (
     <div className="product-display-wrapper">
-      <h1 className="text-3xl font-bold text-center pb-8">{title}</h1>
+      <h1 className="text-3xl font-bold text-center pb-6">{title}</h1>
       <div className="flex justify-between gap-4 py-2">
         <Button onClick={handleBuy}>Buy</Button>
         <Button onClick={handleSkip}>Skip</Button>
