@@ -29,15 +29,13 @@ export function ProductDisplay() {
 
   return (
     <div className="product-display-wrapper">
-      <h1>Product Display</h1>
+      <h1 className="text-3xl font-bold text-center pb-8">Infinite Shop</h1>
       <div className="flex justify-between gap-4">
         <Button onClick={handleBuy}>Buy</Button>
         <Button onClick={handleSkip}>Skip</Button>
       </div>
       <hr />
-      <div className="flex flex-col items-center gap-4">
-        <ProductDetails product={product} />
-      </div>
+      <ProductDetails product={product} />
     </div>
   );
 }

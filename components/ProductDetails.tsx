@@ -15,28 +15,21 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
     );
   }
 
-  if (product.error) {
-    return (
-      <pre className="text-red-500">
-        <code>{product.error}</code>
-      </pre>
-    );
-  }
   return (
     <>
+      <h2 className="text-xl font-semibold pt-4">{product.title}</h2>
+      <h3 className="text-lg font-semibold text-right text-green-600">
+        ${product.price}
+      </h3>
       <p className="image-container">
         <Image
-          src={product.image}
+          src={product.images[0]}
           alt={product.title}
           width={200}
           height={200}
           className="image"
         />
       </p>
-      <h2>{product.title}</h2>
-      <h3>{product.price}</h3>
-      <p>{product.description}</p>
-      <p>{product.category}</p>
     </>
   );
 }
