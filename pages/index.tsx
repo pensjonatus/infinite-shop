@@ -12,7 +12,7 @@ export default function Home() {
         <title>{title}</title>
       </Head>
       <main
-        className={`flex h-screen flex-col items-center justify-between ${inter.className}`}
+        className={`flex h-[90vh] flex-col items-center justify-between ${inter.className}`}
       >
         <ProductDisplay title={title} />
       </main>
