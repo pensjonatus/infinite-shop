@@ -4,7 +4,11 @@ import Button from "./Button";
 import ProductDetails from "./ProductDetails";
 import CurrencyDisplay from "./CurrencyDisplay";
 
-export function ProductDisplay() {
+type ProductDisplayProps = {
+  title: string;
+};
+
+export function ProductDisplay({ title }: ProductDisplayProps) {
   const [product, setProduct] = useState<ProductInfo | null>(null);
   const [cart, setCart] = useState<ProductInfo[]>([]);
 
@@ -44,8 +48,8 @@ export function ProductDisplay() {
 
   return (
     <div className="product-display-wrapper">
-      <h1 className="text-3xl font-bold text-center pb-8">Infinite Shop</h1>
-      <div className="flex justify-between gap-4">
+      <h1 className="text-3xl font-bold text-center pb-8">{title}</h1>
+      <div className="flex justify-between gap-4 py-2">
         <Button onClick={handleBuy}>Buy</Button>
         <Button onClick={handleSkip}>Skip</Button>
       </div>

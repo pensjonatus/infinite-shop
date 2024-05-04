@@ -1,14 +1,21 @@
 import { ProductDisplay } from "@/components/ProductDisplay";
 import { Inter } from "next/font/google";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const title = "♾️ Infinite shop";
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-4 ${inter.className}`}
-    >
-      <ProductDisplay />
-    </main>
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <main
+        className={`flex min-h-screen flex-col items-center justify-between p-4 ${inter.className}`}
+      >
+        <ProductDisplay title={title} />
+      </main>
+    </>
   );
 }
