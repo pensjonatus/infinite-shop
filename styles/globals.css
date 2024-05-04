@@ -43,5 +43,11 @@ body {
     height: 100%;
     max-width: 500px;
     min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 }
