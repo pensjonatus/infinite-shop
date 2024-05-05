@@ -54,7 +54,7 @@ const messages = [
 ];
 
 export default function Subliminal() {
-  const isSubliminalTime = Math.random() <= 0.01;
+  const isSubliminalTime = Math.random() < 0.01;
   const randomIndex = Math.floor(Math.random() * messages.length);
 
   if (isSubliminalTime) {
