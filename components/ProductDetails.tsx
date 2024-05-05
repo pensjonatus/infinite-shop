@@ -27,6 +27,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           fill
           objectFit="contain"
           className="image"
+          unoptimized
         />
       </p>
     </>

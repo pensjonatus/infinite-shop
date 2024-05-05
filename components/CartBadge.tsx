@@ -18,6 +18,7 @@ export default function CartBadge({ itemCount }: { itemCount: number }) {
           src={jeff}
           alt="a symbol of avarice"
           className="inline"
+          unoptimized
         />
       );
     case itemCount >= 50000000:
