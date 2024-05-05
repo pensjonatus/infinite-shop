@@ -10,6 +10,10 @@ export default function CartBadge({ itemCount }: { itemCount: number }) {
     return <>💰</>;
   }
 
+  if (itemCount === 420) {
+    return <>🌿</>;
+  }
+
   if (itemCount >= 500) {
     return <>🤑</>;
   }
