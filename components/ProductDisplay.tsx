@@ -1,7 +1,7 @@
 import { ProductInfo } from "@/pages/api/product";
 import { useEffect, useState } from "react";
 import Button from "./Button";
-import CartDisplay from "./CartDisplay";
+import CartDisplay, { CartData } from "./CartDisplay";
 import ProductDetails from "./ProductDetails";
 import Subliminal from "./Subliminal";
 
@@ -11,7 +11,10 @@ type ProductDisplayProps = {
 
 export function ProductDisplay({ title }: ProductDisplayProps) {
   const [product, setProduct] = useState<ProductInfo | null>(null);
-  const [cart, setCart] = useState<ProductInfo[]>([]);
+  const [cart, setCart] = useState<CartData>({
+    numberOfItems: 0,
+    sum: 0,
+  });
 
   async function fetchProduct() {
     if (product !== null) {
@@ -26,21 +29,28 @@ export function ProductDisplay({ title }: ProductDisplayProps) {
   useEffect(() => {
     const cartInLocalStorage = localStorage.getItem("cart");
     if (cartInLocalStorage) {
-      setCart(JSON.parse(cartInLocalStorage));
+      if (!JSON.parse(cartInLocalStorage).sum) {
+        localStorage.removeItem("cart");
+      } else {
+        setCart(JSON.parse(cartInLocalStorage));
+      }
     }
     fetchProduct();
   }, []);
 
   useEffect(() => {
     const cartInLocalStorage = localStorage.getItem("cart");
-    if (cart.length > 0 && cartInLocalStorage !== JSON.stringify(cart)) {
+    if (cart.numberOfItems > 0 && cartInLocalStorage !== JSON.stringify(cart)) {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
 
   function handleBuy() {
     if (product) {
-      setCart([...cart, product!]);
+      setCart((currentCart) => ({
+        numberOfItems: currentCart.numberOfItems + 1,
+        sum: currentCart.sum + product.price,
+      }));
       fetchProduct();
     }
   }
@@ -54,7 +64,7 @@ export function ProductDisplay({ title }: ProductDisplayProps) {
       <div>
         <h1 className="text-3xl font-bold text-center pb-6">♾️ {title}</h1>
         <hr />
-        <CartDisplay cart={cart} />
+        <CartDisplay numberOfItems={cart.numberOfItems} sum={cart.sum} />
         <ProductDetails product={product} />
       </div>
       <div className="flex justify-between gap-4 py-2">

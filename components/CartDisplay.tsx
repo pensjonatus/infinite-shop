@@ -1,19 +1,17 @@
-import { ProductInfo } from "@/pages/api/product";
-import CurrencyDisplay from "./CurrencyDisplay";
 import CartBadge from "./CartBadge";
+import CurrencyDisplay from "./CurrencyDisplay";
 
-export default function CartDisplay({ cart }: { cart: ProductInfo[] }) {
+export type CartData = {
+  numberOfItems: number;
+  sum: number;
+};
+
+export default function CartDisplay({ numberOfItems, sum }: CartData) {
   return (
     <p className="py-2">
-      <span className="font-bold text-orange-500">{cart.length}</span>
-      <CartBadge itemCount={cart.length} /> items in your cart (
-      <CurrencyDisplay
-        amount={cart.reduce(
-          (accumulator, item) => accumulator + item?.price || 0,
-          0
-        )}
-      />
-      )
+      <span className="font-bold text-orange-500">{numberOfItems}</span>
+      <CartBadge itemCount={numberOfItems} /> items in your cart (
+      <CurrencyDisplay amount={sum} />)
     </p>
   );
 }
