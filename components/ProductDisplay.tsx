@@ -75,7 +75,7 @@ export function ProductDisplay({ title }: ProductDisplayProps) {
           Skip
         </Button>
       </div>
-      <Subliminal />
+      <Subliminal key={product?.price || 0} />
     </div>
   );
 }
