@@ -1,9 +1,8 @@
 import { ProductInfo } from "@/pages/api/product";
 import { useEffect, useState } from "react";
 import Button from "./Button";
-import ProductDetails from "./ProductDetails";
-import CurrencyDisplay from "./CurrencyDisplay";
 import CartDisplay from "./CartDisplay";
+import ProductDetails from "./ProductDetails";
 import Subliminal from "./Subliminal";
 
 type ProductDisplayProps = {
