@@ -40,8 +40,10 @@ export function ProductDisplay({ title }: ProductDisplayProps) {
   }, [cart]);
 
   function handleBuy() {
-    setCart([...cart, product!]);
-    fetchProduct();
+    if (product) {
+      setCart([...cart, product!]);
+      fetchProduct();
+    }
   }
 
   function handleSkip() {
