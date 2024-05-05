@@ -1,7 +1,6 @@
 import { ProductInfo } from "@/pages/api/product";
 import Image from "next/image";
 import { Loader } from "./Loader";
-import CurrencyDisplay from "./CurrencyDisplay";
 import PriceDisplay from "./PriceDisplay";
 
 type ProductDetailsProps = {

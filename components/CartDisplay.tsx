@@ -8,7 +8,10 @@ export default function CartDisplay({ cart }: { cart: ProductInfo[] }) {
       <span className="font-bold text-orange-500">{cart.length}</span>
       <CartBadge itemCount={cart.length} /> items in your cart (
       <CurrencyDisplay
-        amount={cart.reduce((accumulator, item) => accumulator + item.price, 0)}
+        amount={cart.reduce(
+          (accumulator, item) => accumulator + item?.price || 0,
+          0
+        )}
       />
       )
     </p>
